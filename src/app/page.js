@@ -11,6 +11,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [enteryLang, setEnteryLang] = useState("en");
+  const [translatedLang, setTranslatedLang] = useState("fa")
   const [text, setText] = useState("");
   const [charLength, setCharlength] = useState(0);
   const maxLength = 500;
@@ -20,6 +21,18 @@ export default function Home() {
       setEnteryLang(newAlignment);
     }
   };
+
+  const handleTranslatedLang = (lang) => {
+    if (lang !== null) {
+      setTranslatedLang(lang)
+    }
+  }
+
+  const swap = () => {
+    const hold = translatedLang
+    setTranslatedLang(enteryLang)
+    setEnteryLang(hold)
+  }
 
   const handleInput = (event) => {
     let words = event.target.value;
@@ -85,7 +98,7 @@ export default function Home() {
               <div className="box_main">
                 <TextField
                   className="main_input"
-                  rows={7}
+                  rows={20}
                   multiline
                   fullWidth
                   placeholder="hello, how are you"
@@ -93,18 +106,63 @@ export default function Home() {
                   value={text}
                 />
                 <div className="box_footer">
-                  <div>
-                    <Button onClick={copyHandler}>
+                  <div className="buttons">
+                    <button className="footer_button" variant="outlined" onClick={copyHandler}>
                       <img src="./Copy.svg" alt="Copy" />
-                    </Button>
-                    <Button onClick={readHandler}>
+                    </button>
+                    <button className="footer_button" variant="outlined" onClick={readHandler}>
                       <img src="./sound_max_fill.svg" alt="Read Aloud" />
-                    </Button>
+                    </button>
                   </div>
                   <div>
                     <Typography className="footer_counter">
                       {charLength}/500
                     </Typography>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="boxes_box" style={{background: "#121826cc"}}>
+              <div className="box_header">
+                <ToggleButtonGroup
+                  className="toggle-button-group"
+                  value={translatedLang}
+                  exclusive
+                  onChange={handleTranslatedLang}
+                >
+                  <ToggleButton className="toggle-button" value="en">
+                    English
+                  </ToggleButton>
+                  <ToggleButton className="toggle-button" value="fr">
+                    French
+                  </ToggleButton>
+                  <ToggleButton className="toggle-button" value="fa">
+                    Farsi
+                  </ToggleButton>
+                  <ToggleButton className="toggle-button" value="sp">
+                    Spanish
+                  </ToggleButton>
+                </ToggleButtonGroup>
+                <button className="header_swapButton" onClick={swap}>
+                  <img src="./Horizontal_top_left_main.svg" alt="Swap"/>
+                </button>
+              </div>
+              <div className="box_main">
+                <Typography className="main_translated">
+                  {text.trim() !== "" ? text : "translated"}
+                </Typography>
+                <div className="box_footer">
+                  <div className="buttons">
+                    <button className="footer_button" variant="outlined" onClick={copyHandler}>
+                      <img src="./Copy.svg" alt="Copy" />
+                    </button>
+                    <button className="footer_button" variant="outlined" onClick={readHandler}>
+                      <img src="./sound_max_fill.svg" alt="Read Aloud" />
+                    </button>
+                  </div>
+                  <div>
+                    
                   </div>
                 </div>
               </div>

@@ -78,6 +78,7 @@ body {
   padding: 1rem;
   border: 1px solid var(--borders2);
   box-sizing: border-box;
+  margin: 1rem 0;
 }
 
 .toggle-button {
@@ -109,6 +110,9 @@ body {
 .box_header{
   border-bottom: 1px solid var(--borders2);
   padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .box_main{
@@ -124,15 +128,15 @@ body {
 .main_input .MuiInputBase-input {
   font-size: var(--semiBold);
   color: var(--white);
-  font-family: 'DM Sans', sans-serif;;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .main_input .MuiOutlinedInput-root {
-  border-color: transparent; /* برای حذف حاشیه */
+  border-color: transparent;
 }
 
 .main_input .MuiOutlinedInput-notchedOutline {
-  border: none; /* برای حذف کادر */
+  border: none;
 }
 
 .footer_counter{
@@ -143,4 +147,56 @@ body {
 .box_footer{
   display: flex;
   justify-content: space-between;
+}
+
+.buttons{
+  display: flex;
+
+}
+
+.footer_button{
+  border: 2px solid var(--borders2);
+  border-radius: 1rem;
+  padding: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--borders2);
+  margin: 0 0.5rem;
+}
+
+.footer_button img{
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.main_translated{
+  width: 100%;
+  height: auto; 
+  min-height: 30rem; 
+  font-size: var(--semiBold);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  padding: 1rem; 
+  box-sizing: border-box;
+  overflow: hidden; 
+  white-space: pre-wrap; 
+  word-wrap: break-word; 
+}
+
+.header_swapButton{
+  background: transparent;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: 2px solid var(--borders2);
+  border-radius: 1rem;
 }
