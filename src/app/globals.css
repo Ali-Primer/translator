@@ -1,3 +1,146 @@
-:root{
-  
+:root {
+  --black: #040711;
+  --gray: #212936cc;
+  --darkgray: #121826cc;
+  --lightGray: #cdd5e0;
+  --white: #f9fafb;
+  --darkBlue: #3662e3;
+  --lightBlue: #7ca9f3;
+  --borders: #394150;
+  --borders2: #4D5562;
+  --bold: 1.6rem;
+  --semiBold: 1.4rem;
+  --medium: 1.2rem;
+}
+
+html {
+  font-size: 10px;
+  line-height: 16px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.background {
+  background: var(--black);
+  height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
+.main_background .bc {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  transform: scale(2);
+  margin-bottom: -15rem;
+}
+
+.container_header {
+  z-index: 1;
+}
+
+.main_container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0; /* حاشیه منفی را حذف کنید */
+  padding: 2rem; /* کمی padding اضافه کنید */
+  box-sizing: border-box;
+}
+
+.container_boxes {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.boxes_box {
+  width: 100%;
+  background: var(--gray);
+  border-radius: 1.2rem;
+  padding: 1rem;
+  border: 1px solid var(--borders2);
+  box-sizing: border-box;
+}
+
+.toggle-button {
+  color: var(--borders);
+  cursor: pointer;
+  background: transparent;
+  transition: 0.5s;
+  border: 0;
+  outline: none;
+  font-size: var(--semiBold);
+  font-weight: 600;
+  text-transform: capitalize;
+  margin: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+
+.toggle-button.Mui-selected {
+  transition: 0.5s;
+  color: var(--white);
+  background: var(--borders2);
+  border-radius: 1rem;
+}
+
+.toggle-button.Mui-selected:hover {
+  color: var(--white);
+  background: var(--borders2);
+}
+
+.box_header{
+  border-bottom: 1px solid var(--borders2);
+  padding-bottom: 1rem;
+}
+
+.box_main{
+  padding-top: 1rem;
+}
+
+.main_input{
+  color: var(--white);
+  outline: none;
+  border: 0;
+}
+
+.main_input .MuiInputBase-input {
+  font-size: var(--semiBold);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;;
+}
+
+.main_input .MuiOutlinedInput-root {
+  border-color: transparent; /* برای حذف حاشیه */
+}
+
+.main_input .MuiOutlinedInput-notchedOutline {
+  border: none; /* برای حذف کادر */
+}
+
+.footer_counter{
+  font-size: var(--medium);
+  color: var(--borders2);
+}
+
+.box_footer{
+  display: flex;
+  justify-content: space-between;
 }
