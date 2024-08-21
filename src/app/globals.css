@@ -200,3 +200,24 @@ body {
   border: 2px solid var(--borders2);
   border-radius: 1rem;
 }
+
+button{
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 1023px) {
+  .main_background .bc{
+    transform: scale(1);
+    margin-bottom: -30rem;
+  }
+}
+
+@media only screen and (min-width: 1439px) {
+  .container_boxes{
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .main_background .bc{
+    margin-bottom: -40rem;
+  }
+}

@@ -9,9 +9,11 @@ import {
 import "./globals.css";
 import { useState } from "react";
 
+
+
 export default function Home() {
   const [enteryLang, setEnteryLang] = useState("en");
-  const [translatedLang, setTranslatedLang] = useState("fa")
+  const [translatedLang, setTranslatedLang] = useState("fa");
   const [text, setText] = useState("");
   const [charLength, setCharlength] = useState(0);
   const maxLength = 500;
@@ -22,17 +24,19 @@ export default function Home() {
     }
   };
 
-  const handleTranslatedLang = (lang) => {
+  const handleTranslatedLang = (event, lang) => {
     if (lang !== null) {
-      setTranslatedLang(lang)
+      setTranslatedLang(lang);
+      console.log("Translated Language:", lang);
+      console.log("Entry Language:", enteryLang);
     }
-  }
+  };
 
   const swap = () => {
-    const hold = translatedLang
-    setTranslatedLang(enteryLang)
-    setEnteryLang(hold)
-  }
+    const hold = translatedLang;
+    setTranslatedLang(enteryLang);
+    setEnteryLang(hold);
+  };
 
   const handleInput = (event) => {
     let words = event.target.value;
@@ -55,10 +59,16 @@ export default function Home() {
 
   const readHandler = () => {
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = enteryLang === "en" ? "en-US" : 
-                     enteryLang === "fr" ? "fr-FR" : 
-                     enteryLang === "fa" ? "fa-IR" : 
-                     enteryLang === "sp" ? "es-ES" : "en-US";
+    utterance.lang =
+      enteryLang === "en"
+        ? "en-US"
+        : enteryLang === "fr"
+        ? "fr-FR"
+        : enteryLang === "fa"
+        ? "fa-IR"
+        : enteryLang === "sp"
+        ? "es-ES"
+        : "en-US";
     window.speechSynthesis.speak(utterance);
   };
 
@@ -107,10 +117,18 @@ export default function Home() {
                 />
                 <div className="box_footer">
                   <div className="buttons">
-                    <button className="footer_button" variant="outlined" onClick={copyHandler}>
+                    <button
+                      className="footer_button"
+                      variant="outlined"
+                      onClick={copyHandler}
+                    >
                       <img src="./Copy.svg" alt="Copy" />
                     </button>
-                    <button className="footer_button" variant="outlined" onClick={readHandler}>
+                    <button
+                      className="footer_button"
+                      variant="outlined"
+                      onClick={readHandler}
+                    >
                       <img src="./sound_max_fill.svg" alt="Read Aloud" />
                     </button>
                   </div>
@@ -123,7 +141,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="boxes_box" style={{background: "#121826cc"}}>
+            <div className="boxes_box" style={{ background: "#121826cc" }}>
               <div className="box_header">
                 <ToggleButtonGroup
                   className="toggle-button-group"
@@ -145,25 +163,31 @@ export default function Home() {
                   </ToggleButton>
                 </ToggleButtonGroup>
                 <button className="header_swapButton" onClick={swap}>
-                  <img src="./Horizontal_top_left_main.svg" alt="Swap"/>
+                  <img src="./Horizontal_top_left_main.svg" alt="Swap" />
                 </button>
               </div>
               <div className="box_main">
                 <Typography className="main_translated">
                   {text.trim() !== "" ? text : "translated"}
                 </Typography>
-                <div className="box_footer">
+                <div className="box_footer" style={{marginTop: "2.5rem"}}>
                   <div className="buttons">
-                    <button className="footer_button" variant="outlined" onClick={copyHandler}>
+                    <button
+                      className="footer_button"
+                      variant="outlined"
+                      onClick={copyHandler}
+                    >
                       <img src="./Copy.svg" alt="Copy" />
                     </button>
-                    <button className="footer_button" variant="outlined" onClick={readHandler}>
+                    <button
+                      className="footer_button"
+                      variant="outlined"
+                      onClick={readHandler}
+                    >
                       <img src="./sound_max_fill.svg" alt="Read Aloud" />
                     </button>
                   </div>
-                  <div>
-                    
-                  </div>
+                  <div></div>
                 </div>
               </div>
             </div>
