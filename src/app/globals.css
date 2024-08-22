@@ -75,7 +75,7 @@ body {
   width: 100%;
   background: var(--gray);
   border-radius: 1.2rem;
-  padding: 1rem;
+  padding: 2rem;
   border: 1px solid var(--borders2);
   box-sizing: border-box;
   margin: 1rem 0;
